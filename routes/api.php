@@ -1,9 +1,7 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\PaymentController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\XenditController;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -16,5 +14,6 @@ use App\Http\Controllers\XenditController;
 |
 */
 
-Route::post('/create-invoice', [XenditController::class, 'createInvoice']);
-Route::post('/webhook/notification', [XenditController::class, 'notification']);
+Route::get('/invoices', [PaymentController::class, 'index']);
+Route::post('/create-invoice', [PaymentController::class, 'store']);
+Route::post('/webhook/notification', [PaymentController::class, 'notification']);
